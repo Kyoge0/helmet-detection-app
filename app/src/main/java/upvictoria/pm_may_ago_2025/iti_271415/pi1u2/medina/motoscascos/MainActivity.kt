@@ -11,6 +11,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 import upvictoria.pm_may_ago_2025.iti_271415.pi1u2.medina.motoscascos.ui.CameraPreviewScreen
+import upvictoria.pm_may_ago_2025.iti_271415.pi1u2.medina.motoscascos.ui.ImagenPruebaDetector
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MaterialTheme {
-                CameraPreviewScreen()
+                ImagenPruebaDetector()
             }
         }
     }

@@ -1,5 +1,6 @@
 package upvictoria.pm_may_ago_2025.iti_271415.pi1u2.medina.motoscascos.ui
 
+import android.graphics.BitmapFactory
 import android.util.Log
 import android.view.ViewGroup
 import androidx.camera.core.CameraSelector
@@ -14,7 +15,9 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.LaunchedEffect
 import androidx.core.content.ContextCompat
+import upvictoria.pm_may_ago_2025.iti_271415.pi1u2.medina.motoscascos.R
 import upvictoria.pm_may_ago_2025.iti_271415.pi1u2.medina.motoscascos.ml.DetectionBox
 import upvictoria.pm_may_ago_2025.iti_271415.pi1u2.medina.motoscascos.ml.DetectionOverlay
 
@@ -94,4 +97,20 @@ fun DetectionOverlayView(
         },
         modifier = modifier
     )
+}
+
+@Composable
+fun ImagenPruebaDetector() {
+    val context = LocalContext.current
+
+    // Ejecutar solo una vez al componer
+    LaunchedEffect(Unit) {
+        val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.prueba)
+        val detector = YoloDetector(context)
+        val resultados = detector.detect(bitmap)
+
+        for (resultado in resultados) {
+            Log.d("YoloTest", resultado)
+        }
+    }
 }
